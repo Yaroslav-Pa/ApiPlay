@@ -10,7 +10,14 @@ module.exports = {
     "./*.{js,vue,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        bgColor: "#2F5D62",
+        menuColor: "#5E8B7E",
+        secondColor: "#A7C4BC",
+        firstColor: "#DFEEEA",
+      },
+    },
   },
   plugins: [],
 };

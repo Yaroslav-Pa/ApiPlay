@@ -1,10 +1,6 @@
 <script setup>
 const menuItems = [
   {
-    title: "Main",
-    to: "/",
-  },
-  {
     title: "Bored?",
     to: "/bored",
   },
@@ -30,17 +26,17 @@ export default {
 
 <template>
   <div
-    class="flex flex-row h-[100px] gap-x-[20px] bg-cyan-600 mb-[75px] justify-center items-center"
+    class="flex flex-row h-[100px] gap-x-[20px] bg-menuColor mb-[75px] justify-center items-center"
   >
     <router-link
       :to="to"
       v-for="{ title, to } in menuItems"
-      class="max-h-[50px] font-bold px-[20px] py-[5px] rounded-[50px] bg-indigo-600 text-white hover:bg-indigo-800"
+      class="max-h-[50px] font-bold py-[10px] px-[20px] rounded-[50px] bg-firstColor hover:bg-transparent hover:border-firstColor border-2 hover:text-white transition-all duration-150"
       >{{ title }}</router-link
     >
   </div>
   <div class="flex flex-col justify-center items-center">
-    <div class="flex flex-col mx-[40px] justify-center items-center text-white">
+    <div class="flex flex-col mx-[40px] justify-center items-center">
       <NuxtPage />
     </div>
   </div>

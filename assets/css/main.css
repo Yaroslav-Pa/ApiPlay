@@ -6,7 +6,7 @@
   html,
   body,
   __nuxt {
-    @apply flex flex-col h-full bg-slate-900;
+    @apply flex flex-col h-full bg-bgColor;
   }
 }
 
