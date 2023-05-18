@@ -8,6 +8,10 @@ const menuItems = [
     title: "News",
     to: "/news",
   },
+  {
+    title: "Picture of the day",
+    to: "/dayPicture",
+  },
 ];
 </script>
 
