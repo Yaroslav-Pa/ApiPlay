@@ -24,6 +24,7 @@ export default {
         (this.nasaImage.date = localStorage.storedImageDate),
         (this.nasaImage.copyright = localStorage.storedImageCopyright))
       : this.getNasaApi();
+    this.getDate();
   },
   methods: {
     getNasaApi() {
@@ -39,6 +40,19 @@ export default {
           localStorage.setItem("storedImageDate", res.data.date);
           localStorage.setItem("storedImageCopyright", res.data.copyright);
         });
+    },
+    getDate() {
+      if (localStorage.savedDate) {
+        let hourseDifference =
+          Math.abs(localStorage.savedDate - Date.now()) / 36e5;
+        if (hourseDifference >= 1) {
+          getNasaApi();
+          localStorage.savedDate = Date.now();
+        }
+      } else {
+        let dateToSave = Date.now();
+        localStorage.setItem("savedDate", dateToSave);
+      }
     },
   },
 };
