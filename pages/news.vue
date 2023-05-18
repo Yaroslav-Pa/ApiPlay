@@ -8,6 +8,20 @@ export default {
       countryName: "Ukraine",
       countryId: "ua",
       key: "ac11416ebce14041a202833f45e02ba4",
+      NewsSources: [
+        { name: "Netherlands", code: "nl" },
+        { name: "Australia", code: "au" },
+        { name: "Germany", code: "de" },
+        { name: "France", code: "fr" },
+        { name: "Italy", code: "it" },
+        { name: "Japan", code: "jp" },
+        { name: "Switzerland", code: "ch" },
+        { name: "Ukraine", code: "ua" },
+        { name: "United Kingdom", code: "gb" },
+        { name: "China", code: "cn" },
+        { name: "United States", code: "us" },
+        { name: "Czech Republic", code: "cz" },
+      ],
     };
   },
   mounted() {
@@ -73,6 +87,22 @@ export default {
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="flex flex-col my-[30px] gap-y-[30px]">
+    <h1 class="text-center text-[20px] font-bold text-white">
+      View news in other countries:
+    </h1>
+    <div class="grid grid-cols-4 grid-rows-1 max-w-[600px] gap-[20px]">
+      <button
+        v-for="{ name, code } in NewsSources"
+        @click="
+          (countryId = code), getNewsAPI(), (countryName = name), scroollToTop()
+        "
+        class="py-[10px] px-[20px] font-bold bg-firstColor hover:bg-transparent hover:border-firstColor border-2 hover:text-white transition-all duration-150 rounded-[50px]"
+      >
+        <p class="text-center">{{ name }}</p>
+      </button>
     </div>
   </div>
 </template>
