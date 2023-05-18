@@ -26,9 +26,9 @@ export default {
 <template>
   <div
     v-if="activity"
-    class="flex flex-col px-[50px] py-[50px] rounded-[50px] bg-secondColor justify-center items-center gap-y-[30px]"
+    class="flex flex-col px-[50px] py-[50px] rounded-[50px] bg-secondColor justify-center items-center gap-y-[20px]"
   >
-    <div class="flex flex-col justify-center items-center">
+    <div class="flex flex-col justify-center items-center gap-y-[20px]">
       <p class="text-[18px] font-light">
         I can suggest you do something like this:
       </p>
