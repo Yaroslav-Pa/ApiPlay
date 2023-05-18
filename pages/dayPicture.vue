@@ -4,12 +4,26 @@ import axios from "axios";
 export default {
   data() {
     return {
-      nasaImage: null,
+      nasaImage: {
+        url: null,
+        hdurl: null,
+        title: null,
+        explanation: null,
+        date: null,
+        copyright: null,
+      },
       nasaKey: "W5K2KzrE3SPRKzfo2RsAYrgakHehl9fBVoQikpD8",
     };
   },
   mounted() {
-    this.getNasaApi();
+    localStorage.storedImageSrc != (null || undefined)
+      ? ((this.nasaImage.url = localStorage.storedImageSrc),
+        (this.nasaImage.hdurl = localStorage.storedImageHdurl),
+        (this.nasaImage.title = localStorage.storedImageTitle),
+        (this.nasaImage.explanation = localStorage.storedImageExplanation),
+        (this.nasaImage.date = localStorage.storedImageDate),
+        (this.nasaImage.copyright = localStorage.storedImageCopyright))
+      : this.getNasaApi();
   },
   methods: {
     getNasaApi() {
@@ -17,6 +31,13 @@ export default {
         .get("https://api.nasa.gov/planetary/apod?api_key=" + this.nasaKey)
         .then((res) => {
           this.nasaImage = res.data;
+          console.log("geted from api");
+          localStorage.setItem("storedImageSrc", res.data.url);
+          localStorage.setItem("storedImageHdurl", res.data.hdurl);
+          localStorage.setItem("storedImageTitle", res.data.title);
+          localStorage.setItem("storedImageExplanation", res.data.explanation);
+          localStorage.setItem("storedImageDate", res.data.date);
+          localStorage.setItem("storedImageCopyright", res.data.copyright);
         });
     },
   },
@@ -41,10 +62,16 @@ export default {
         Explanation: {{ nasaImage.explanation }}
       </p>
       <div class="flex flex-row gap-x-[50px]">
-        <h1 class="text-center text-[20px] font-bold text-white">
+        <h1
+          v-if="nasaImage.date"
+          class="text-center text-[20px] font-bold text-white"
+        >
           Date: {{ nasaImage.date }}
         </h1>
-        <h1 class="text-center text-[20px] font-bold text-white">
+        <h1
+          v-if="nasaImage.copyright"
+          class="text-center text-[20px] font-bold text-white"
+        >
           Copyright: {{ nasaImage.copyright }}
         </h1>
       </div>

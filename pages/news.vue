@@ -41,7 +41,6 @@ export default {
         )
         .then((response) => {
           this.allNewsArr = response.data.articles;
-          console.log(response.data.articles);
         });
     },
   },
