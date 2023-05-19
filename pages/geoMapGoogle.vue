@@ -8,7 +8,7 @@ export default {
   },
   data() {
     return {
-      chartData: [
+      geoChartData: [
         ["Country", "No. of Movies"],
         ["United States", 23544],
         ["United Kingdom", 4263],
@@ -92,6 +92,29 @@ export default {
         region: "world",
         resolution: "countries",
         displayMode: "regions",
+        backgroundColor: "transparent",
+        legend: {
+          textStyle: { color: "#000000", fontSize: 18, "stroke-width": 0 },
+        },
+        datalessRegionColor: "#696969",
+        colorAxis: { colors: ["#95CD41", "#A3F3EB", "#FFC60B"] },
+      },
+      pieChartData: [
+        ["Oblast", "Number of internally displaced persons"],
+        ["Dnipropetrovsk", 442323],
+        ["Donetsk", 521362],
+        ["Kharkiv ", 444322],
+        ["Kyiv", 705638],
+        ["Luhansk ", 277700],
+      ],
+      pieChartOptions: {
+        width: 950,
+        height: 500,
+
+        backgroundColor: "transparent",
+        legend: {
+          textStyle: { color: "#ffffff", fontSize: 18, "stroke-width": 0 },
+        },
         datalessRegionColor: "#696969",
         colorAxis: { colors: ["#95CD41", "#A3F3EB", "#FFC60B"] },
       },
@@ -101,15 +124,37 @@ export default {
 </script>
 
 <template>
-  <div>
-    <GChart
-      type="GeoChart"
-      :data="chartData"
-      :options="chartOptions"
-      :settings="{
-        packages: ['geochart'],
-      }"
-    />
+  <div class="flex flex-col justify-center items-center gap-y-[30px]">
+    <div
+      class="flex flex-col px-[50px] py-[30px] rounded-[50px] bg-bgColor justify-center items-center gap-y-[20px] border-2 border-secondColor"
+    >
+      <h1 class="text-center text-[20px] font-bold text-white">
+        GeoChart: Number of created films per country
+      </h1>
+      <GChart
+        type="GeoChart"
+        :data="geoChartData"
+        :options="chartOptions"
+        :settings="{
+          packages: ['geochart'],
+        }"
+      />
+    </div>
+    <div
+      class="flex flex-col px-[50px] py-[30px] rounded-[50px] bg-bgColor justify-center items-center gap-y-[20px] border-2 border-secondColor"
+    >
+      <h1 class="text-center text-[20px] font-bold text-white">
+        PieChart: Number of internally displaced persons
+      </h1>
+      <GChart
+        type="PieChart"
+        :data="pieChartData"
+        :options="pieChartOptions"
+        :settings="{
+          packages: ['corechart'],
+        }"
+      />
+    </div>
   </div>
 </template>
 <style></style>
