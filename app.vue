@@ -29,7 +29,7 @@ const menuItems = [
     >
   </div>
   <div class="flex flex-col justify-center items-center">
-    <div class="flex flex-col mx-[40px] justify-center items-center">
+    <div class="flex flex-col mx-[40px] justify-center items-center mb-[50px]">
       <NuxtPage />
     </div>
   </div>

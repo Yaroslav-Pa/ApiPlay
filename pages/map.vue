@@ -81,6 +81,10 @@ export default {
         ["Colombia", 84],
         ["Kazakhstan", 29],
         ["Lithuania", 120],
+        ["Belarus", 14],
+        ["Georgia", 31],
+        ["Indonesia", 60],
+        ["Mongolia", 13],
       ],
       chartOptions: {
         width: 950,
@@ -89,7 +93,7 @@ export default {
         resolution: "countries",
         displayMode: "regions",
         datalessRegionColor: "#696969",
-        colorAxis: { colors: ["#9370DB", "#FFD700"] },
+        colorAxis: { colors: ["#95CD41", "#A3F3EB", "#FFC60B"] },
       },
     };
   },
@@ -133,7 +137,6 @@ export default {
 <template>
   <div>
     <GChart
-      class="rounded-[50px]"
       type="GeoChart"
       :data="chartData"
       :options="chartOptions"

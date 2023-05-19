@@ -61,7 +61,7 @@ export default {
 <template>
   <div
     v-if="nasaImage"
-    class="flex flex-col justify-center items-center gap-y-[20px] mb-[50px]"
+    class="flex flex-col justify-center items-center gap-y-[20px]"
   >
     <h1 class="text-center text-[20px] font-bold text-white">
       Astronomy Picture of the Day
