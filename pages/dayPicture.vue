@@ -46,8 +46,9 @@ export default {
         let hourseDifference =
           Math.abs(localStorage.savedDate - Date.now()) / 36e5;
         if (hourseDifference >= 1) {
-          getNasaApi();
+          this.getNasaApi();
           localStorage.savedDate = Date.now();
+          console.log("data updated via hour no updating");
         }
       } else {
         let dateToSave = Date.now();

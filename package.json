@@ -19,6 +19,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/tailwindcss": "^6.6.8",
     "axios": "^1.4.0",
-    "vue-axios": "^3.5.2"
+    "vue-axios": "^3.5.2",
+    "vue-google-charts": "^1.1.0"
   }
 }
