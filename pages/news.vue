@@ -68,9 +68,10 @@ export default {
     >
       <div class="flex flex-row items-center gap-x-[30px]">
         <img
-          :src="urlToImage"
           v-if="urlToImage"
-          alt="img"
+          :src="urlToImage"
+          alt="image"
+          :class="urlToImage ? 'block' : 'hidden'"
           class="h-[150px] rounded-[20px]"
         />
         <div class="flex flex-col gap-y-[10px] max-w-[550px]">

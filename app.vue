@@ -1,6 +1,10 @@
 <script setup>
 const menuItems = [
   {
+    title: "Charts",
+    to: "/geoMapGoogle",
+  },
+  {
     title: "Bored?",
     to: "/bored",
   },
